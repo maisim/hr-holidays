@@ -10,8 +10,8 @@ _logger = logging.getLogger(__name__)
 
 
 class TestHrHolidaysCredit(common.TransactionCase):
-    def setUp(self):
-        super().setUp()
+    def setUpClass(self):
+        super().setUpClass()
 
         self.Employee = self.env["hr.employee"]
         self.SudoEmployee = self.Employee.sudo()

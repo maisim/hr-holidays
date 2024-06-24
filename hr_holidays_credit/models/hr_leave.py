@@ -7,6 +7,7 @@ from odoo import api, models
 class HrLeave(models.Model):
     _inherit = "hr.leave"
 
+    # pylint: disable=missing-return
     @api.constrains("state", "number_of_days", "holiday_status_id")
     def _check_holidays(self):
         uncreditable_requests = self.filtered(
