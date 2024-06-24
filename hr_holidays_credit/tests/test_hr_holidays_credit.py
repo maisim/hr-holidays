@@ -59,7 +59,9 @@ class TestHrHolidaysCredit(common.TransactionCase):
             }
         )
 
-    def test_credit_leave_should_not_be_created_if_disabled_on_leave_type(self,):
+    def test_credit_leave_should_not_be_created_if_disabled_on_leave_type(
+        self,
+    ):
         employee = self.SudoEmployee.create({"name": "Employee #1"})
 
         with self.assertRaises(ValidationError):
@@ -264,7 +266,8 @@ class TestHrHolidaysCredit(common.TransactionCase):
             employee_id=employee.id
         ).name_get()[0][1]
         self.assertIn(
-            "%g hours used in credit" % abs(leave.number_of_hours_display), name,
+            "%g hours used in credit" % abs(leave.number_of_hours_display),
+            name,
         )
         self.assertNotIn(" + credit", name)
 
